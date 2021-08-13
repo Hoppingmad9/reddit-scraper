@@ -5,7 +5,8 @@ reddit_username = 'xxx'
 reddit_password = 'xxx'
 
 #your useragent
-user_agent = 'SimpleSavedScraper by YOUR_USERNAME'
+user_agent = 'SimpleSavedScraper by '+reddit_username
+print(user_agent)
 
 #we need a basic reddit app
 #tutorial https://alpscode.com/blog/how-to-use-reddit-api/
