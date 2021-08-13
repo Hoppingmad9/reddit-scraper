@@ -4,6 +4,9 @@ import requests
 reddit_username = 'xxx'
 reddit_password = 'xxx'
 
+#your useragent
+user_agent = 'SimpleSavedScraper by YOUR_USERNAME'
+
 #we need a basic reddit app
 #tutorial https://alpscode.com/blog/how-to-use-reddit-api/
 #but the basics are below
@@ -19,7 +22,7 @@ data = {'grant_type': 'password', 'username': reddit_username, 'password': reddi
 auth = requests.auth.HTTPBasicAuth(app_id, app_secret)
 r = requests.post(base_url + 'api/v1/access_token',
                   data=data,
-                  headers={'user-agent': 'SimpleSavedScraper by /u/hoppingmad9'},
+                  headers={'user-agent': user_agent},
 		  auth=auth)
 d = r.json()
 
@@ -29,7 +32,7 @@ token = 'bearer ' + d['access_token']
 base_url = 'https://oauth.reddit.com'
 
 #create new headers with the token
-headers = {'Authorization': token, 'User-Agent': 'SimpleSavedScraper by /u/hoppingmad9'}
+headers = {'Authorization': token, 'User-Agent': user_agent}
 #check they work with a simple request to "me" api
 response = requests.get(base_url + '/api/v1/me', headers=headers)
 
